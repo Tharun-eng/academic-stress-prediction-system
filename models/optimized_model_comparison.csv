@@ -1,0 +1,4 @@
+Model,Accuracy,Precision,Recall,F1 Score,Cross Validation
+XGBoost,0.9,0.9008,0.9,0.9003,0.9272
+Random Forest,0.845,0.846,0.845,0.8441,0.9089
+Extra Trees,0.8367,0.8363,0.8367,0.8339,0.9153

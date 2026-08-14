@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Academic Stress Prediction System
+</title>
+
+
+<!-- Bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+
+<!-- Bootstrap Icons -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+rel="stylesheet">
+
+
+<!-- Google Font -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+
+<!-- Custom CSS -->
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+NAVBAR
+===================================================== -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+
+<div class="container">
+
+
+<a class="navbar-brand" href="/">
+
+<i class="bi bi-mortarboard-fill"></i>
+
+Academic Stress Prediction
+
+</a>
+
+
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarMenu">
+
+
+<span class="navbar-toggler-icon"></span>
+
+
+</button>
+
+
+
+
+<div class="collapse navbar-collapse"
+id="navbarMenu">
+
+
+<ul class="navbar-nav ms-auto">
+
+
+<li class="nav-item">
+
+<a class="nav-link active"
+href="/">
+
+<i class="bi bi-house-fill"></i>
+
+Home
+
+</a>
+
+</li>
+
+
+
+<li class="nav-item">
+
+<a class="nav-link"
+href="{{ url_for('history_page') }}">
+
+<i class="bi bi-clock-history"></i>
+
+History
+
+</a>
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+<!-- =====================================================
+HERO SECTION
+===================================================== -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Left Side -->
+
+            <div class="col-lg-7">
+
+                <span class="hero-badge">
+
+                    <i class="bi bi-cpu-fill"></i>
+
+                    Machine Learning Based System
+
+                </span>
+
+                <h1 class="hero-title">
+
+                    Academic Stress Prediction System
+
+                </h1>
+
+                <p class="hero-description">
+
+                    Welcome,
+                    <strong>{{ user_name }}</strong> 👋
+
+                    <br><br>
+
+                    Predict academic stress using Machine Learning based on
+                    students' academic performance, lifestyle and behavioural
+                    factors. View analytics, prediction history and receive
+                    personalized recommendations to improve academic well-being.
+
+                </p>
+
+                <div class="mt-4">
+
+                    <a href="#prediction-form"
+                       class="btn hero-btn me-3">
+
+                        <i class="bi bi-lightning-charge-fill"></i>
+
+                        Predict Stress
+
+                    </a>
+
+                    <a href="{{ url_for('history_page') }}"
+                       class="btn btn-outline-light btn-lg">
+
+                        <i class="bi bi-clock-history"></i>
+
+                        View History
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="col-lg-5 text-center">
+
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+                     class="hero-image img-fluid"
+                     alt="Student">
+
+                <div class="mt-4">
+
+                    <a href="{{ url_for('logout') }}"
+                       class="btn btn-danger">
+
+                        <i class="bi bi-box-arrow-right"></i>
+
+                        Logout
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+MAIN CONTAINER
+===================================================== -->
+
+
+<div class="container">
+
+
+<!-- =====================================================
+DASHBOARD OVERVIEW
+===================================================== -->
+
+
+<div class="section-title">
+
+
+<h2>
+
+<i class="bi bi-speedometer2"></i>
+
+Dashboard Overview
+
+</h2>
+
+
+</div>
+
+
+<div class="row">
+
+
+
+<div class="col-lg-3 col-md-6 mb-4">
+
+
+<div class="dashboard-card">
+
+
+<div class="dashboard-icon bg-primary">
+
+
+<i class="bi bi-people-fill"></i>
+
+
+</div>
+
+
+<h6>
+
+Total Predictions
+
+</h6>
+
+
+<h2>
+
+{{ stats.total }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+
+
+<div class="dashboard-card">
+
+
+<div class="dashboard-icon bg-success">
+
+
+<i class="bi bi-emoji-smile-fill"></i>
+
+
+</div>
+
+<h6>
+
+Low Stress
+
+</h6>
+
+<h2>
+
+{{ stats.low }}
+
+</h2>
+
+
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+
+
+<div class="dashboard-card">
+
+
+<div class="dashboard-icon bg-warning">
+
+
+<i class="bi bi-emoji-neutral-fill"></i>
+
+
+</div>
+
+
+
+<h6>
+
+Medium Stress
+
+</h6>
+
+<h2>
+
+{{ stats.medium }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+<div class="col-lg-3 col-md-6 mb-4">
+
+
+<div class="dashboard-card">
+
+
+<div class="dashboard-icon bg-danger">
+
+
+<i class="bi bi-emoji-frown-fill"></i>
+
+
+</div>
+
+
+
+<h6>
+
+High Stress
+
+</h6>
+
+
+
+<h2>
+
+{{ stats.high }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+AVERAGE STATISTICS
+===================================================== -->
+
+
+<div class="row">
+
+
+
+<div class="col-lg-4 mb-4">
+
+
+<div class="stat-card">
+
+
+<i class="bi bi-book-fill"></i>
+
+
+<h5>
+
+Average Study Hours
+
+</h5>
+
+
+
+<h3>
+
+{{ stats.avg_study }}
+
+</h3>
+
+
+
+</div>
+
+
+</div>
+
+<div class="col-lg-4 mb-4">
+
+
+<div class="stat-card">
+
+
+<i class="bi bi-phone-fill"></i>
+
+
+<h5>
+
+Average Screen Time
+
+</h5>
+
+
+<h3>
+
+{{ stats.avg_screen }}
+
+</h3>
+
+</div>
+</div>
+
+<div class="col-lg-4 mb-4">
+
+
+<div class="stat-card">
+
+
+<i class="bi bi-moon-stars-fill"></i>
+
+
+<h5>
+
+Average Sleep Hours
+
+</h5>
+
+
+
+<h3>
+
+{{ stats.avg_sleep }}
+
+</h3>
+
+
+
+</div>
+</div>
+</div>
+
+<!-- =====================================================
+ANALYTICS DASHBOARD
+===================================================== -->
+
+
+<div class="section-title">
+
+
+<h2>
+
+<i class="bi bi-bar-chart-fill"></i>
+
+Analytics Dashboard
+
+</h2>
+
+
+</div>
+
+
+<div class="row">
+
+<div class="col-lg-6 mb-4">
+
+<div class="chart-card">
+
+<h4>
+
+Stress Distribution
+
+</h4>
+
+<img src="{{ url_for('static', filename='charts/pie_chart.png') }}?v={{stats.total}}"
+class="img-fluid">
+
+
+</div>
+
+
+</div>
+
+
+<div class="col-lg-6 mb-4">
+
+
+<div class="chart-card">
+
+
+<h4>
+
+Stress Comparison
+
+</h4>
+
+<img src="{{ url_for('static', filename='charts/bar_chart.png') }}?v={{stats.total}}"
+class="img-fluid">
+
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+PREDICTION FORM
+===================================================== -->
+
+
+<div class="section-title">
+
+
+<h2>
+
+<i class="bi bi-pencil-square"></i>
+
+Student Information
+
+</h2>
+
+
+</div>
+
+
+<div class="form-card">
+
+<form id="prediction-form"
+action="/predict"
+method="POST">
+
+<h4 class="form-section-title">
+
+<i class="bi bi-person-circle"></i>
+
+Personal Information
+
+</h4>
+
+<div class="row">
+
+
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Age
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="age"
+min="17"
+max="35"
+placeholder="Enter Age"
+required>
+
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Gender
+
+</label>
+
+
+<select class="form-select"
+name="gender"
+required>
+
+
+<option value="">
+
+Select Gender
+
+</option>
+
+
+<option>
+
+Male
+
+</option>
+
+
+<option>
+
+Female
+
+</option>
+
+</select>
+
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+University Type
+
+</label>
+
+
+<select class="form-select"
+name="university_type"
+required>
+
+
+<option value="">
+
+Select University
+
+</option>
+
+
+<option>
+
+National University
+
+</option>
+
+
+<option>
+
+Private University
+
+</option>
+
+
+<option>
+
+Public University
+
+</option>
+
+
+</select>
+
+
+</div>
+
+</div>
+
+<!-- ACADEMIC SECTION CONTINUES IN PART 2 -->
+<!-- =====================================================
+ACADEMIC INFORMATION
+===================================================== -->
+
+
+<h4 class="form-section-title mt-4">
+
+<i class="bi bi-book-fill"></i>
+
+Academic Information
+
+</h4>
+
+<div class="row">
+
+
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Study Hours
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="study_hours"
+min="0"
+max="15"
+placeholder="Hours per Day"
+required>
+
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Class Attendance
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="class_attendance"
+min="0"
+max="100"
+placeholder="Attendance Percentage"
+required>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Tuition
+
+</label>
+
+
+<select class="form-select"
+name="tuition"
+required>
+
+
+<option value="">
+
+Select
+
+</option>
+
+
+<option>
+
+Yes
+
+</option>
+
+
+<option>
+
+No
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+</div>
+
+
+<div class="row">
+
+
+
+<div class="col-md-6 mb-4">
+
+
+<label class="form-label">
+
+Exam Frequency (1-10)
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="exam_frequency"
+min="1"
+max="10"
+placeholder="1-10"
+required>
+
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+
+<label class="form-label">
+
+Assignment Load (1-10)
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="assignment_load"
+min="1"
+max="10"
+placeholder="1-10"
+required>
+
+
+</div>
+
+
+
+</div>
+
+<!-- =====================================================
+LIFESTYLE INFORMATION
+===================================================== -->
+
+
+<h4 class="form-section-title mt-4">
+
+
+<i class="bi bi-heart-pulse-fill"></i>
+
+
+Lifestyle & Behaviour
+
+
+</h4>
+
+<div class="row">
+
+
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Sleep Hours
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="sleep_hours"
+min="0"
+max="12"
+placeholder="Hours per Day"
+required>
+
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Social Media Usage
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="social_media_use"
+min="0"
+max="15"
+placeholder="Hours per Day"
+required>
+
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Screen Time
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="screen_time"
+min="0"
+max="15"
+placeholder="Hours per Day"
+required>
+
+
+</div>
+
+
+
+</div>
+
+<div class="row">
+
+
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Physical Exercise
+
+</label>
+
+
+<select class="form-select"
+name="physical_exercise"
+required>
+
+
+<option value="">
+
+Select
+
+</option>
+
+
+<option>
+
+Yes
+
+</option>
+
+
+<option>
+
+No
+
+</option>
+
+
+</select>
+
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+
+<label class="form-label">
+
+Family Income
+
+</label>
+
+
+<select class="form-select"
+name="family_income"
+required>
+
+
+<option value="">
+
+Select
+
+</option>
+
+
+<option>
+
+Low
+
+</option>
+
+
+<option>
+
+Medium
+
+</option>
+
+
+<option>
+
+High
+
+</option>
+</select>
+</div>
+
+<div class="col-md-4 mb-4">
+<label class="form-label">
+
+Peer Pressure (1-10)
+
+</label>
+<input type="number"
+class="form-control"
+name="peer_pressure"
+min="1"
+max="10"
+placeholder="1-10"
+required>
+</div>
+
+</div>
+
+<div class="row">
+<div class="col-md-6 mb-4">
+<label class="form-label">
+
+Family Support (1-10)
+
+</label>
+
+<input type="number"
+class="form-control"
+name="family_support"
+min="1"
+max="10"
+placeholder="1-10"
+required>
+
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+
+<label class="form-label">
+
+Anxiety Level (1-10)
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="anxiety_level"
+min="1"
+max="10"
+placeholder="1-10"
+required>
+
+</div>
+</div>
+
+<!-- =====================================================
+PREDICT BUTTON
+===================================================== -->
+
+
+<div class="text-center mt-4">
+
+
+<button type="submit"
+class="btn predict-btn">
+
+
+<i class="bi bi-cpu-fill"></i>
+
+
+Predict Stress Level
+
+
+</button>
+
+
+</div>
+
+
+
+</form>
+
+
+</div>
+
+<!-- =====================================================
+PREDICTION RESULT
+===================================================== -->
+
+{% if prediction %}
+
+<div class="prediction-card mt-5">
+
+
+<div class="prediction-header bg-{{color}}">
+<h2>
+
+{{icon}}
+
+Prediction Result
+</h2>
+</div>
+
+<div class="prediction-body">
+<h1 class="prediction-text text-{{color}}">
+{{prediction}}
+</h1>
+<p class="prediction-subtitle">
+
+Academic Stress Level
+</p>
+<hr>
+<h4>
+<i class="bi bi-lightbulb-fill"></i>
+Personalized Recommendation
+
+</h4>
+<div class="recommendation-box">
+
+{{ recommendation|safe }}
+
+</div>
+
+</div>
+</div>
+
+{% endif %}
+
+<!-- =====================================================
+SEARCH SECTION
+===================================================== -->
+
+
+<div class="section-title mt-5">
+
+
+<h2>
+
+<i class="bi bi-search"></i>
+
+
+Search Prediction History
+
+</h2>
+</div>
+
+
+<div class="search-card">
+<form method="GET"
+action="/">
+
+<div class="row align-items-end">
+
+<div class="col-md-5 mb-3">
+
+
+<label class="form-label">
+
+Search by Age
+
+</label>
+
+
+<input type="number"
+class="form-control"
+name="search"
+value="{{search}}"
+placeholder="Enter Age">
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+
+<label class="form-label">
+
+Stress Level
+
+</label>
+<select class="form-select"
+name="filter">
+
+<option value="All">
+
+All
+
+</option>
+<option value="Low">
+
+Low
+
+</option>
+<option value="Medium">
+
+Medium
+
+</option>
+<option value="High">
+
+High
+
+</option>
+
+</select>
+
+</div>
+
+<div class="col-md-3 mb-3 d-grid">
+
+<button class="btn btn-primary">
+
+
+<i class="bi bi-funnel-fill"></i>
+
+
+Search
+
+</button>
+</div>
+</div>
+</form>
+</div>
+
+<!-- =====================================================
+RECENT PREDICTIONS
+===================================================== -->
+
+<div class="section-title mt-5">
+
+<h2>
+
+<i class="bi bi-clock-history"></i>
+
+Recent Predictions
+
+</h2>
+
+</div>
+
+<div class="history-card">
+
+<div class="table-responsive">
+
+<table class="table table-hover align-middle">
+
+<thead>
+
+
+<tr>
+
+
+<th>
+
+Date & Time
+
+</th>
+
+
+<th>
+
+Age
+
+</th>
+
+
+<th>
+
+Study
+
+</th>
+
+
+<th>
+
+Screen
+
+</th>
+
+
+<th>
+
+Sleep
+
+</th>
+
+
+<th>
+
+Stress
+
+</th>
+
+
+<th>
+
+Action
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% if history %}
+
+{% for row in history %}
+
+<tr>
+
+<td>
+
+{{row.DateTime}}
+
+</td>
+
+<td>
+
+{{row.Age}}
+
+</td>
+<td>
+
+{{row.Study_Hours}} hrs
+
+</td>
+
+<td>
+
+{{row.Screen_Time}} hrs
+
+</td>
+
+<td>
+
+{{row.Sleep_Hours}} hrs
+
+</td>
+<td>
+
+{% if row.Prediction=="Low" %}
+
+
+<span class="badge bg-success">
+
+🟢 Low
+
+</span>
+
+{% elif row.Prediction=="Medium" %}
+
+<span class="badge bg-warning text-dark">
+
+🟡 Medium
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+🔴 High
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+<a href="{{url_for('delete_prediction',id=row.id)}}"
+class="btn btn-danger btn-sm"
+onclick="return confirm('Delete this prediction?')">
+<i class="bi bi-trash-fill"></i>
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+{% else %}
+<tr>
+
+<td colspan="7"
+class="text-center py-5">
+
+<h5 class="text-muted">
+
+No Prediction History Available
+
+</h5>
+
+</td>
+</tr>
+
+{% endif %}
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="text-center mt-4">
+
+<a href="{{url_for('history_page')}}"
+class="btn btn-history">
+
+<i class="bi bi-journal-text"></i>
+
+View Complete History
+</a>
+</div>
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+
+<footer class="footer mt-5">
+<div class="container">
+<div class="row">
+<div class="col-lg-6">
+
+<h4>
+
+<i class="bi bi-mortarboard-fill"></i>
+
+Academic Stress Prediction System
+
+</h4>
+
+<p>
+
+A Machine Learning based web application developed to predict
+students' academic stress levels using academic, lifestyle and
+behavioural factors.
+
+
+</p>
+
+</div>
+
+
+<div class="col-lg-3">
+
+
+<h5>
+
+Quick Links
+
+</h5>
+<ul class="footer-links">
+
+<li>
+
+<a href="/">
+
+<i class="bi bi-house-fill"></i>
+
+Home
+
+</a>
+
+</li>
+
+<li>
+
+<a href="{{url_for('history_page')}}">
+
+<i class="bi bi-clock-history"></i>
+
+History
+
+</a>
+
+</li>
+</ul>
+</div>
+
+<div class="col-lg-3">
+
+
+<h5>
+
+Technologies
+
+</h5>
+
+
+<ul class="footer-links">
+
+
+<li>Python</li>
+
+<li>Flask</li>
+
+<li>Machine Learning</li>
+
+<li>Random Forest</li>
+
+<li>MySQL</li>
+
+<li>Bootstrap</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<hr>
+
+<div class="text-center">
+<p>
+
+© 2026 Academic Stress Prediction System
+
+<br>
+
+Developed as part of Master's Project using Machine Learning
+
+</p>
+</div>
+
+</div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

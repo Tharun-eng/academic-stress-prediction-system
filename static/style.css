@@ -1,0 +1,2202 @@
+/* ==========================================================
+   Academic Stress Prediction System
+   Professional AI Dashboard Theme
+   Part 3 : Core UI Styling
+========================================================== */
+
+
+/* ===============================
+   GLOBAL SETTINGS
+================================ */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+body{
+
+    background:
+    linear-gradient(
+        135deg,
+        #eff6ff,
+        #dbeafe,
+        #f8fafc
+    );
+
+    color:#1e293b;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+
+
+
+/* ===============================
+   SCROLL BAR
+================================ */
+
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+
+::-webkit-scrollbar-track{
+
+    background:#e2e8f0;
+
+}
+
+
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563eb;
+
+    border-radius:20px;
+
+}
+
+
+
+
+
+/* ===============================
+   CONTAINER
+================================ */
+
+
+.container{
+
+    max-width:1350px;
+
+}
+
+
+
+
+
+
+/* ===============================
+   NAVBAR
+================================ */
+
+
+.navbar{
+
+    background:
+    linear-gradient(
+        90deg,
+        #1e3a8a,
+        #2563eb
+    );
+
+    padding:15px 0;
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,.15);
+
+}
+
+
+
+
+.navbar-brand{
+
+    color:white!important;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+
+
+.navbar-brand i{
+
+    margin-right:8px;
+
+}
+
+
+
+.nav-link{
+
+    color:white!important;
+
+    font-weight:500;
+
+    margin-left:15px;
+
+    transition:.3s;
+
+}
+
+
+
+.nav-link:hover{
+
+    transform:translateY(-3px);
+
+    opacity:.8;
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   HERO SECTION
+================================ */
+
+
+.hero-section{
+
+    margin-top:90px;
+
+    padding:70px 50px;
+
+    border-radius:30px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #1e40af
+    );
+
+
+    color:white;
+
+
+    box-shadow:
+
+    0 20px 50px rgba(37,99,235,.35);
+
+
+}
+
+
+
+
+
+.hero-badge{
+
+    display:inline-block;
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.2);
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+.hero-title{
+
+    font-size:45px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+}
+
+
+
+.hero-description{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin:25px 0;
+
+    color:#dbeafe;
+
+}
+
+
+
+
+
+
+.hero-btn{
+
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    border-radius:30px;
+
+    background:white;
+
+    color:#2563eb;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.4s;
+
+
+}
+
+
+
+.hero-btn:hover{
+
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 15px 30px rgba(0,0,0,.2);
+
+
+}
+
+
+
+
+
+.hero-image{
+
+    max-width:330px;
+
+    animation:
+
+    floating 4s infinite ease-in-out;
+
+}
+
+
+
+
+@keyframes floating{
+
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===============================
+   SECTION TITLE
+================================ */
+
+
+.section-title{
+
+    margin:55px 0 30px;
+
+}
+
+
+
+
+.section-title h2{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#1e3a8a;
+
+}
+
+
+
+.section-title i{
+
+    color:#2563eb;
+
+    margin-right:10px;
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   DASHBOARD CARDS
+================================ */
+
+
+.dashboard-card{
+
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:25px;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.08);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+
+.dashboard-card:hover{
+
+
+    transform:translateY(-8px);
+
+
+    box-shadow:
+
+    0 20px 45px rgba(37,99,235,.25);
+
+
+}
+
+
+
+
+
+.dashboard-icon{
+
+
+    width:60px;
+
+    height:60px;
+
+
+    border-radius:20px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    color:white;
+
+
+    font-size:28px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.dashboard-card h6{
+
+
+    color:#64748b;
+
+    font-weight:600;
+
+
+}
+
+
+
+
+.dashboard-card h2{
+
+
+    font-size:40px;
+
+    font-weight:800;
+
+    color:#1e3a8a;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ===============================
+   STAT CARDS
+================================ */
+
+
+.stat-card{
+
+
+    background:white;
+
+    padding:30px;
+
+
+    border-radius:25px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.08);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.stat-card:hover{
+
+
+    transform:translateY(-8px);
+
+
+}
+
+
+
+
+.stat-card i{
+
+
+    font-size:40px;
+
+    color:#2563eb;
+
+
+}
+
+
+
+
+.stat-card h5{
+
+
+    margin-top:15px;
+
+    color:#475569;
+
+}
+
+
+
+.stat-card h3{
+
+
+    font-size:35px;
+
+    font-weight:800;
+
+    color:#1e3a8a;
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   CHART SECTION
+================================ */
+
+
+.chart-card{
+
+
+    background:white;
+
+
+    padding:25px;
+
+
+    border-radius:25px;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.chart-card h4{
+
+
+    font-weight:700;
+
+    color:#1e3a8a;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.chart-card img{
+
+
+    width:100%;
+
+    border-radius:20px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   FORM CARD
+================================ */
+
+
+.form-card{
+
+
+    background:white;
+
+
+    padding:35px;
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.08);
+
+
+}
+
+
+
+
+
+.form-section-title{
+
+
+    color:#1e3a8a;
+
+
+    font-weight:700;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+
+.form-label{
+
+
+    font-weight:600;
+
+    color:#1e3a8a;
+
+
+}
+
+
+
+
+
+.form-control,
+.form-select{
+
+
+    padding:13px 18px;
+
+
+    border-radius:15px;
+
+
+    border:1px solid #dbeafe;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.form-control:focus,
+.form-select:focus{
+
+
+    border-color:#2563eb;
+
+
+    box-shadow:
+
+    0 0 0 4px rgba(37,99,235,.15);
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   PREDICT BUTTON
+================================ */
+
+
+.predict-btn{
+
+
+    width:100%;
+
+
+    padding:16px;
+
+
+    border:none;
+
+
+    border-radius:35px;
+
+
+    color:white;
+
+
+    font-size:18px;
+
+
+    font-weight:700;
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #2563eb,
+
+        #1e40af
+
+    );
+
+
+    transition:.4s;
+
+
+}
+
+
+
+
+.predict-btn:hover{
+
+
+    transform:translateY(-5px);
+
+
+    box-shadow:
+
+    0 15px 35px rgba(37,99,235,.4);
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   SEARCH CARD
+================================ */
+
+
+.search-card{
+
+
+    background:white;
+
+
+    padding:30px;
+
+
+    border-radius:25px;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.08);
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   HISTORY TABLE
+================================ */
+
+
+.history-card{
+
+
+    background:white;
+
+
+    padding:25px;
+
+
+    border-radius:25px;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.table thead{
+
+
+    background:#1e3a8a;
+
+    color:white;
+
+
+}
+
+
+
+.table tbody tr{
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.table tbody tr:hover{
+
+
+    background:#eff6ff;
+
+
+    transform:scale(1.01);
+
+
+}
+
+
+
+
+.badge{
+
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+
+}
+
+/* ==========================================================
+   Academic Stress Prediction System
+   Part 4 : Advanced Components & Final UI Polish
+========================================================== */
+
+
+/* ===============================
+   PREDICTION RESULT CARD
+================================ */
+
+
+.prediction-card{
+
+    margin-top:40px;
+
+    background:white;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.12);
+
+    animation:
+
+    fadeIn .7s ease;
+
+}
+
+
+
+
+
+.prediction-header{
+
+    padding:25px;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+
+
+
+
+.prediction-header h2{
+
+    font-weight:800;
+
+    margin:0;
+
+}
+
+
+
+
+
+.prediction-body{
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+
+
+
+
+.prediction-text{
+
+    font-size:55px;
+
+    font-weight:800;
+
+}
+
+
+
+
+
+.prediction-subtitle{
+
+    color:#64748b;
+
+    font-size:18px;
+
+    margin-top:10px;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   RECOMMENDATION BOX
+================================ */
+
+
+.recommendation-box{
+
+
+    margin-top:25px;
+
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #eff6ff,
+
+        #ffffff
+
+    );
+
+
+    padding:30px;
+
+
+    border-radius:20px;
+
+
+    border-left:
+
+    6px solid #2563eb;
+
+
+    text-align:left;
+
+
+    color:#475569;
+
+
+    line-height:1.8;
+
+
+}
+
+
+
+
+
+.recommendation-box strong{
+
+
+    color:#1e40af;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   STRESS COLORS
+================================ */
+
+
+.text-success{
+
+    color:#16a34a!important;
+
+}
+
+
+
+.text-warning{
+
+    color:#d97706!important;
+
+}
+
+
+
+.text-danger{
+
+    color:#dc2626!important;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   HISTORY BUTTON
+================================ */
+
+
+.btn-history{
+
+
+    padding:14px 35px;
+
+
+    border-radius:30px;
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        #2563eb,
+
+        #1e40af
+
+    );
+
+
+    color:white;
+
+
+    font-weight:600;
+
+
+    text-decoration:none;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.btn-history:hover{
+
+
+    color:white;
+
+
+    transform:translateY(-5px);
+
+
+    box-shadow:
+
+    0 15px 30px rgba(37,99,235,.35);
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+
+.footer{
+
+
+    margin-top:70px;
+
+
+    background:#1e3a8a;
+
+
+    padding:50px 0;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.footer h4,
+.footer h5{
+
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+.footer p{
+
+
+    color:#dbeafe;
+
+
+    line-height:1.8;
+
+
+}
+
+
+
+
+
+.footer-links{
+
+
+    list-style:none;
+
+
+    padding:0;
+
+
+}
+
+
+
+
+
+.footer-links li{
+
+
+    margin-bottom:12px;
+
+
+    color:#dbeafe;
+
+
+}
+
+
+
+
+
+.footer-links a{
+
+
+    color:#dbeafe;
+
+
+    text-decoration:none;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.footer-links a:hover{
+
+
+    color:white;
+
+
+    padding-left:5px;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   ANIMATIONS
+================================ */
+
+
+@keyframes fadeIn{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+
+}
+
+
+
+
+
+
+.fade-in{
+
+
+    animation:fadeIn .8s ease;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   FLOATING EFFECT
+================================ */
+
+
+.float{
+
+
+    animation:
+
+    floating 4s infinite ease-in-out;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   GLOW EFFECT
+================================ */
+
+
+.predict-btn{
+
+
+    animation:
+
+    glow 2s infinite;
+
+
+}
+
+
+
+
+@keyframes glow{
+
+
+    0%{
+
+
+        box-shadow:
+
+        0 0 0 rgba(37,99,235,.4);
+
+
+    }
+
+
+
+    50%{
+
+
+        box-shadow:
+
+        0 0 25px rgba(37,99,235,.5);
+
+
+    }
+
+
+
+    100%{
+
+
+        box-shadow:
+
+        0 0 0 rgba(37,99,235,.4);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   LOADING ANIMATION
+================================ */
+
+
+.loader{
+
+
+    width:60px;
+
+    height:60px;
+
+
+    border-radius:50%;
+
+
+    border:
+
+    6px solid #dbeafe;
+
+
+    border-top:
+
+    6px solid #2563eb;
+
+
+    animation:
+
+    spin 1s linear infinite;
+
+
+}
+
+
+
+
+
+@keyframes spin{
+
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   DARK MODE SUPPORT
+================================ */
+
+
+.dark-mode{
+
+
+    background:#0f172a;
+
+    color:white;
+
+
+}
+
+
+
+
+
+.dark-mode .dashboard-card,
+.dark-mode .stat-card,
+.dark-mode .chart-card,
+.dark-mode .form-card,
+.dark-mode .search-card,
+.dark-mode .history-card,
+.dark-mode .prediction-card{
+
+
+    background:#1e293b;
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5{
+
+
+    color:#93c5fd;
+
+
+}
+
+
+
+
+
+.dark-mode p{
+
+
+    color:#cbd5e1;
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   ABOUT / WORKFLOW SUPPORT
+================================ */
+
+
+.workflow-container{
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    flex-wrap:wrap;
+
+
+    gap:20px;
+
+
+}
+
+
+
+
+.workflow-step{
+
+
+    width:220px;
+
+
+    padding:25px;
+
+
+    text-align:center;
+
+
+    background:white;
+
+
+    border-radius:25px;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.08);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.workflow-step:hover{
+
+
+    transform:translateY(-10px);
+
+
+}
+
+
+
+
+
+.workflow-step i{
+
+
+    font-size:45px;
+
+
+    color:#2563eb;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+
+
+@media(max-width:992px){
+
+
+
+.hero-section{
+
+
+    padding:50px 30px;
+
+
+}
+
+
+
+
+.hero-title{
+
+
+    font-size:35px;
+
+
+}
+
+
+
+.dashboard-card h2{
+
+
+    font-size:32px;
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:768px){
+
+
+
+.navbar-collapse{
+
+
+    background:#1e40af;
+
+
+    padding:20px;
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+.hero-section{
+
+
+    text-align:center;
+
+
+}
+
+
+
+.hero-title{
+
+
+    font-size:30px;
+
+
+}
+
+
+
+.hero-description{
+
+
+    font-size:15px;
+
+
+}
+
+
+
+.prediction-text{
+
+
+    font-size:40px;
+
+
+}
+
+
+}
+
+
+
+
+@media(max-width:576px){
+
+
+
+.navbar-brand{
+
+
+    font-size:20px;
+
+
+}
+
+
+
+
+.form-card{
+
+
+    padding:20px;
+
+
+}
+
+
+
+.section-title h2{
+
+
+    font-size:24px;
+
+
+}
+
+
+
+.hero-image{
+
+
+    margin-top:30px;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   PRINT REPORT STYLE
+================================ */
+
+
+@media print{
+
+
+.navbar,
+.footer,
+.predict-btn,
+.search-card{
+
+
+    display:none;
+
+
+}
+
+
+
+
+body{
+
+
+    background:white;
+
+
+}
+
+
+
+
+.prediction-card,
+.history-card{
+
+
+    box-shadow:none;
+
+
+    border:1px solid #ddd;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   FINAL POLISH
+================================ */
+
+
+button,
+a{
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+img{
+
+
+    max-width:100%;
+
+
+}
+
+
+
+::selection{
+
+
+    background:#2563eb;
+
+
+    color:white;
+
+
+}
+
+/* ==========================================================
+   Registration Page
+========================================================== */
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    min-height:100vh;
+}
+
+/* Registration Card */
+
+.register-card{
+
+    width:100%;
+    max-width:520px;
+
+    background:rgba(255,255,255,.20);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+    animation:fadeIn .7s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Registration Icon */
+
+.register-icon{
+
+    font-size:70px;
+
+    color:#fff;
+
+    background:linear-gradient(135deg,#007bff,#00d4ff);
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:auto;
+
+    box-shadow:0 10px 30px rgba(0,123,255,.35);
+
+}
+
+.register-card h2{
+
+    font-weight:700;
+
+    color:#fff;
+
+}
+
+.register-card p{
+
+    color:#f1f1f1;
+
+}
+
+.register-card .form-control,
+.register-card .form-select{
+
+    height:52px;
+
+    border-radius:12px;
+
+    border:none;
+
+    background:rgba(255,255,255,.85);
+
+    transition:.3s;
+
+}
+
+.register-card .form-control:focus,
+.register-card .form-select:focus{
+
+    box-shadow:0 0 0 .25rem rgba(13,110,253,.25);
+
+    background:#fff;
+
+}
+
+.register-card label{
+
+    font-weight:600;
+
+    color:#fff;
+
+    margin-bottom:8px;
+
+}
+
+.register-card .btn-primary{
+
+    height:55px;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    background:linear-gradient(135deg,#0d6efd,#0099ff);
+
+    transition:.35s;
+
+}
+
+.register-card .btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(13,110,253,.35);
+
+}
+
+.register-card .btn-outline-primary{
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+/* Flash Messages */
+
+.register-card .alert{
+
+    border-radius:12px;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .register-card{
+
+        margin:20px;
+
+        padding:30px;
+
+    }
+
+    .register-icon{
+
+        width:90px;
+
+        height:90px;
+
+        font-size:50px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   Login Page
+========================================================== */
+
+.login-card{
+
+    width:100%;
+    max-width:500px;
+
+    background:rgba(255,255,255,.20);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+    animation:fadeIn .7s ease;
+
+}
+
+.login-icon{
+
+    font-size:70px;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:auto;
+
+    color:#fff;
+
+    background:linear-gradient(135deg,#0d6efd,#00c6ff);
+
+    box-shadow:0 10px 30px rgba(13,110,253,.35);
+
+}
+
+.login-card h2{
+
+    color:#fff;
+
+    font-weight:700;
+
+}
+
+.login-card p{
+
+    color:#f1f1f1;
+
+}
+
+.login-card label{
+
+    color:#fff;
+
+    font-weight:600;
+
+}
+
+.login-card .form-control{
+
+    height:52px;
+
+    border-radius:12px;
+
+}
+
+.login-card .btn-primary{
+
+    height:55px;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:600;
+}

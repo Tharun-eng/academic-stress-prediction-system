@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Prediction</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-10">
+
+<div class="card shadow">
+
+<div class="card-header bg-warning">
+
+<h3 class="text-center">
+
+✏ Edit Prediction
+
+</h3>
+
+</div>
+
+<div class="card-body">
+
+<form method="POST">
+
+<!-- PERSONAL -->
+
+<h4 class="text-primary">👤 Personal Information</h4>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-4 mb-3">
+
+<label>Age</label>
+
+<input
+type="number"
+class="form-control"
+name="Age"
+value="{{ row.Age }}"
+required>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Gender</label>
+
+<select
+class="form-control"
+name="Gender">
+
+<option value="Male"
+{% if row.Gender=="Male" %}selected{% endif %}>
+Male
+</option>
+
+<option value="Female"
+{% if row.Gender=="Female" %}selected{% endif %}>
+Female
+</option>
+
+</select>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>University Type</label>
+
+<select
+class="form-control"
+name="University_Type">
+
+<option value="National University"
+{% if row.University_Type=="National University" %}selected{% endif %}>
+National University
+</option>
+
+<option value="Private University"
+{% if row.University_Type=="Private University" %}selected{% endif %}>
+Private University
+</option>
+
+<option value="Public University"
+{% if row.University_Type=="Public University" %}selected{% endif %}>
+Public University
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<!-- ACADEMIC -->
+
+<h4 class="text-primary mt-4">
+
+📚 Academic Information
+
+</h4>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-4 mb-3">
+
+<label>Study Hours</label>
+
+<input
+type="number"
+class="form-control"
+name="Study_Hours"
+value="{{ row.Study_Hours }}"
+required>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Class Attendance</label>
+
+<input
+type="number"
+class="form-control"
+name="Class_Attendance"
+value="{{ row.Class_Attendance }}"
+required>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Tuition</label>
+
+<select
+class="form-control"
+name="Tuition">
+
+<option value="Yes"
+{% if row.Tuition=="Yes" %}selected{% endif %}>
+Yes
+</option>
+
+<option value="No"
+{% if row.Tuition=="No" %}selected{% endif %}>
+No
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label>Exam Frequency</label>
+
+<input
+type="number"
+class="form-control"
+name="Exam_Frequency"
+value="{{ row.Exam_Frequency }}"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Assignment Load</label>
+
+<input
+type="number"
+class="form-control"
+name="Assignment_Load"
+value="{{ row.Assignment_Load }}"
+required>
+
+</div>
+
+</div>
+
+<!-- LIFESTYLE -->
+
+<h4 class="text-primary mt-4">
+
+❤️ Lifestyle & Behaviour
+
+</h4>
+
+<hr>
+
+<div class="row">
+
+<div class="col-md-4 mb-3">
+
+<label>Sleep Hours</label>
+
+<input
+type="number"
+class="form-control"
+name="Sleep_Hours"
+value="{{ row.Sleep_Hours }}"
+required>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Social Media Use</label>
+
+<input
+type="number"
+class="form-control"
+name="Social_Media_Use"
+value="{{ row.Social_Media_Use }}"
+required>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Screen Time</label>
+
+<input
+type="number"
+class="form-control"
+name="Screen_Time"
+value="{{ row.Screen_Time }}"
+required>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-4 mb-3">
+
+<label>Physical Exercise</label>
+
+<select
+class="form-control"
+name="Physical_Exercise">
+
+<option value="Yes"
+{% if row.Physical_Exercise=="Yes" %}selected{% endif %}>
+Yes
+</option>
+
+<option value="No"
+{% if row.Physical_Exercise=="No" %}selected{% endif %}>
+No
+</option>
+
+</select>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Family Income</label>
+
+<select
+class="form-control"
+name="Family_Income_Level">
+
+<option value="Low"
+{% if row.Family_Income_Level=="Low" %}selected{% endif %}>
+Low
+</option>
+
+<option value="Medium"
+{% if row.Family_Income_Level=="Medium" %}selected{% endif %}>
+Medium
+</option>
+
+<option value="High"
+{% if row.Family_Income_Level=="High" %}selected{% endif %}>
+High
+</option>
+
+</select>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+<label>Peer Pressure</label>
+
+<input
+type="number"
+class="form-control"
+name="Peer_Pressure"
+value="{{ row.Peer_Pressure }}"
+required>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label>Family Support</label>
+
+<input
+type="number"
+class="form-control"
+name="Family_Support"
+value="{{ row.Family_Support }}"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Anxiety Level</label>
+
+<input
+type="number"
+class="form-control"
+name="Anxiety_Level"
+value="{{ row.Anxiety_Level }}"
+required>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="mb-3">
+
+<label>Current Prediction</label>
+
+<input
+type="text"
+class="form-control"
+value="{{ row.Prediction }}"
+readonly>
+
+<small class="text-muted">
+
+Prediction will be recalculated after clicking Update.
+
+</small>
+
+</div>
+
+<div class="d-flex justify-content-between">
+
+<a href="{{ url_for('history_page') }}"
+class="btn btn-secondary">
+
+← Cancel
+
+</a>
+
+<button
+type="submit"
+class="btn btn-success">
+
+💾 Update Prediction
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

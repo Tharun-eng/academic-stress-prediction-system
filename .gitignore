@@ -1,0 +1,16 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+*.log
+
+firebase/firebase_key.json
+
+Current_Prediction.csv
+Current_Prediction_Report.pdf
+Prediction_History.csv
+Prediction_Report.pdf
+history/prediction_history.csv

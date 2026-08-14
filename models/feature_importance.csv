@@ -1,0 +1,17 @@
+Feature,Importance
+Screen_Time,0.14842625
+Family_Support,0.09725414
+Social_Media_Use,0.09261191
+Exam_Frequency,0.090846606
+Assignment_Load,0.08989062
+Anxiety_Level,0.08517555
+Physical_Exercise,0.075361416
+Sleep_Hours,0.06823596
+Gender,0.046906512
+Family_Income_Level,0.04218162
+Tuition,0.03140184
+University_Type,0.03025402
+Study_Hours,0.028555006
+Peer_Pressure,0.024993297
+Age,0.024043463
+Class_Attendance,0.023861807

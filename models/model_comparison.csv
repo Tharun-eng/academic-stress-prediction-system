@@ -1,0 +1,6 @@
+Model,Accuracy,Precision,Recall,F1 Score,Cross Validation
+Logistic Regression,0.9967,0.9967,0.9967,0.9966,0.9967
+XGBoost,0.8783,0.8809,0.8783,0.8787,0.9293
+Gradient Boosting,0.8517,0.8565,0.8517,0.8534,0.8952
+Random Forest,0.8433,0.8449,0.8433,0.8425,0.9071
+Extra Trees,0.825,0.8253,0.825,0.8223,0.9118

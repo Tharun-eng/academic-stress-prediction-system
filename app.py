@@ -23,7 +23,7 @@ import joblib
 
 app = Flask(__name__)
 
-app.secret_key = "academic_stress_secret"
+app.config['SECRET_KEY'] = 'c9d4a548bdb5b49d302dd7ec55d4b3792fadb47046e92a4bfa68f1314feebe0f'
 
 
 # ===================================
@@ -1655,8 +1655,10 @@ def api_predict():
 # ===================================
 
 if __name__ == "__main__":
-    app.run(
+    from waitress import serve
+
+    serve(
+        app,
         host="0.0.0.0",
-        port=5000,
-        debug=True
+        port=5000
     )

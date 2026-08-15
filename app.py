@@ -20,11 +20,11 @@ import pandas as pd
 from flask import send_file
 from flask import flash
 import joblib
+import os
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'c9d4a548bdb5b49d302dd7ec55d4b3792fadb47046e92a4bfa68f1314feebe0f'
-
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 # ===================================
 # Load Model & Encoders
